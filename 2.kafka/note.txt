@@ -1,0 +1,10 @@
+cd D:\projects\stockbit\kafka_2.12-2.7.0
+start cmd /k bin\windows\zookeeper-server-start.bat config\zookeeper.properties
+start cmd /k bin\windows\kafka-server-start.bat config\server.properties
+
+cd D:\projects\stockbit\kafka_2.12-2.7.0
+bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
+bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic users-log
+bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic test
+bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --from-beginning
