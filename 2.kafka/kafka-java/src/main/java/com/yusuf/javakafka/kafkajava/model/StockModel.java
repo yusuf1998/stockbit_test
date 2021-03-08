@@ -1,14 +1,17 @@
 package com.yusuf.javakafka.kafkajava.model;
 
  public class StockModel {
-    private String time; 
-    private String stockName; 
+    private String  time; 
+    private String  stockName; 
     private Integer lowPoint; 
     private Integer highPoint; 
 
+    public StockModel() 
+    { 
+        super(); 
+    } 
     public StockModel(String time, String stockName,Integer lowPoint,Integer highPoint) 
     { 
-        super();
         this.time = time; 
         this.stockName = stockName; 
         this.lowPoint = lowPoint; 
