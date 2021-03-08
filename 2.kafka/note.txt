@@ -1,10 +1,23 @@
-cd D:\projects\stockbit\kafka_2.12-2.7.0
-start cmd /k bin\windows\zookeeper-server-start.bat config\zookeeper.properties
-start cmd /k bin\windows\kafka-server-start.bat config\server.properties
+---- please follow this instructions ----
+1. running zookeeper server
+2. running kafka server
 
-cd D:\projects\stockbit\kafka_2.12-2.7.0
+---- command to create topic ---- 
 bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
 bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic users-log
+
+---- command to check list topic ---- 
 bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+
+---- command to run producer ---- 
 bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic test
+
+---- command to run consumer ---- 
 bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --from-beginning
+
+
+---- Test kafka ----
+1.open postman 
+2.write get request with url (http://localhost:8080/kafka/produce) to store test3.txt file to topic
+3.write get request with url (http://localhost:8080/kafka/message) to process kafka and save automatically
+the result as dataStockTest3.txt in kafka-java directory.
