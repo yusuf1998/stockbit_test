@@ -24,7 +24,11 @@ public class KafkaController {
     @GetMapping("/kafka/produce")
     public void produce() {
         try {
-            File file = new File("D:\\projects\\stockbit\\stockbitKafkaTest\\test3.txt");             
+
+            String fileName = "templates/test3.txt";
+            ClassLoader classLoader = getClass().getClassLoader();
+            File file = new File(classLoader.getResource(fileName).getFile());
+
             BufferedReader br = new BufferedReader(new FileReader(file)); 
             String messageLine; 
 
