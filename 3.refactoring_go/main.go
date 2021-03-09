@@ -12,7 +12,7 @@ func findFirstStringInBracket(str string) string {
 			wordsAfterFirstBracket := string(runes[indexFirstBracketFound:len(str)])
 			indexClosingBracketFound := strings.Index(wordsAfterFirstBracket, ")")
 			if indexClosingBracketFound >= 0 {
-				result = string(runes[1 : indexClosingBracketFound-1])
+				result = string(runes[1:indexClosingBracketFound])
 			}
 		}
 	}
@@ -20,6 +20,6 @@ func findFirstStringInBracket(str string) string {
 }
 
 func main() {
-	findFirstStringInBracket("(adads)")
+	findFirstStringInBracket("(Haloo)")
 	println("result", result)
 }
